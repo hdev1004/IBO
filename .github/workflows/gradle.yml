@@ -7,8 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+  build-docker-image:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -32,3 +31,19 @@ jobs:
 
     - name: Build with Gradle Wrapper
       run: ./gradlew build
+
+      
+    - name: Docker Build
+      run: docker build -t hdev1004/ibo-bo .
+
+    # DockerHub Login (push 하기 위해)
+    - name: docker login
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+        
+    # Docker hub 로 push
+    - name: Docker Hub push
+      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/hdev1004/ibo-bo
+      
