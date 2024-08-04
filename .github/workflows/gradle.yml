@@ -50,7 +50,7 @@ jobs:
 
   # cafe24 실행
   run-docker-image-on-cafe24:
-    needs: build-docker-image
+    needs: build-docker-image 
     runs-on: self-hosted
 
     steps:
