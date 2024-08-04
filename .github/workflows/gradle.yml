@@ -23,9 +23,9 @@ jobs:
 
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@dbbdc275be76ac10734476cc723d82dfe7ec6eda # v3.4.2
-
+      
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      run: chmod +x ibo/gradlew
 
     - name: Build with Gradle Wrapper
-      run: ./gradlew build
+      run: ./ibo/gradlew build
