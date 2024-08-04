@@ -31,4 +31,4 @@ jobs:
       run: chmod +x ibo/gradlew
 
     - name: Build with Gradle Wrapper
-      run: ./gradlew ibo/build
+      run: ./ibo/gradlew build
