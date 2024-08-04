@@ -10,4 +10,9 @@ public class TestAPI {
 	public String getHello() {
 		return "Hello IBO Project!";
 	}
+	
+	@GetMapping("/test")
+	public String getTest() {
+		return "Test API !!";
+	}
 }
