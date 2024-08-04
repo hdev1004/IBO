@@ -55,16 +55,16 @@ jobs:
 
     steps:
     - name: docker pull
-      run : sudo docker pull hdev1004/ibo-bo
+      run : docker pull hdev1004/ibo-bo
 
     - name: docker stop container
       run: |
         if [ $(sudo docker ps -a -q -f name=spring-cicd-test) ]; then
-          sudo docker stop spring-cicd-test
+          docker stop spring-cicd-test
         fi
 
     - name: docker run new container
-      run: sudo docker run --rm -it -d -p 7070:8080 --name spring-cicd-test hdev1004/ibo-bo
+      run: docker run --rm -it -d -p 7070:8080 --name ibo-bo hdev1004/ibo-bo
 
     - name: delete old docker image
-      run: sudo docker system prune -f
+      run: docker system prune -f
