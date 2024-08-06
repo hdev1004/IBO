@@ -55,7 +55,11 @@ jobs:
 
     steps:
     - name: docker stop container
-      run: docker stop ibo-bo & docker rm ibo-bo & docker rmi hdev1004/ibo-bo
+      run: |
+        if [ $(sudo docker ps -a -q -f name=ibo-bo) ]; then
+          docker stop ibo-bo & docker rm ibo-bo & docker rmi hdev1004/ibo-bo
+        fi
+        
           
     - name: docker pull
       run : docker pull hdev1004/ibo-bo
