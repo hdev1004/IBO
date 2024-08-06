@@ -56,7 +56,7 @@ jobs:
     steps:
     - name: docker stop container
       run: |
-        if [ $(docker ps -a -q -f name=ibo-bo) ]; then
+        if [ "$(docker ps -a -q -f name=ibo-bo)" ]; then
           docker stop ibo-bo && docker rm ibo-bo && docker rmi hdev1004/ibo-bo
         fi
         
