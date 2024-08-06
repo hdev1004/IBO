@@ -59,7 +59,7 @@ jobs:
 
     - name: docker stop container
       run: |
-        if [ $(sudo docker ps -a -q -f name=ibo-bo) ]; then
+        if [ $(docker ps -a -q -f name=ibo-bo) ]; then
           docker stop ibo-bo
         fi
 
