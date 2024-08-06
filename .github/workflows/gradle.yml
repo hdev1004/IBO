@@ -59,8 +59,8 @@ jobs:
 
     - name: docker stop container
       run: |
-        if [ $(sudo docker ps -a -q -f name=hdev1004/ibo-bo) ]; then
-          docker stop hdev1004/ibo-bo
+        if [ $(sudo docker ps -a -q -f name=ibo-bo) ]; then
+          docker stop ibo-bo
         fi
 
     - name: docker run new container
