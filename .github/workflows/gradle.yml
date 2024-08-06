@@ -55,10 +55,7 @@ jobs:
 
     steps:
     - name: docker stop container
-      run:
-          docker stop ibo-bo
-          docker rm ibo-bo
-          docker rmi hdev1004/ibo-bo
+      run: docker stop ibo-bo & docker rm ibo-bo & docker rmi hdev1004/ibo-bo
           
     - name: docker pull
       run : docker pull hdev1004/ibo-bo
