@@ -13,6 +13,6 @@ public class TestAPI {
 	
 	@GetMapping("/test")
 	public String getTest() {
-		return "Test API !!";
+		return "Test API 수정";
 	}
 }
