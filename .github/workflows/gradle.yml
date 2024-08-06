@@ -57,6 +57,19 @@ jobs:
     - name: docker pull
       run : docker pull hdev1004/ibo-bo
 
+    - name: stop and remove existing container
+      run: |
+        if [ $(docker ps -q -f name=ibo-bo) ]; then
+          docker stop ibo-bo
+          docker rm ibo-bo
+        fi
+
+    - name: remove existing image
+      run: |
+        if [ $(docker images -q hdev1004/ibo-bo) ]; then
+          docker rmi -f hdev1004/ibo-bo
+        fi
+
     - name: docker run new container
       run: docker run -d -p 7070:8080 --name ibo-bo hdev1004/ibo-bo
 
