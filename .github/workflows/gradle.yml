@@ -66,6 +66,9 @@ jobs:
         if [ $(docker images -q hdev1004/ibo-bo) ]; then
           docker rmi -f hdev1004/ibo-bo
         fi
+        
+    - name: docker pull
+      run: docker pull hdev1004/ibo-bo
 
     - name: docker run new container
       run: docker run -d --name ibo-bo -p 7070:8080 -e SPRING_DATASOURCE_URL=jdbc:mariadb://host.docker.internal:30002/ibo -e SPRING_DATASOURCE_USERNAME=root -e SPRING_DATASOURCE_PASSWORD=1234 hdev1004/ibo-bo
