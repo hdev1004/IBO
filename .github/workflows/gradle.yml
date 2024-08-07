@@ -68,7 +68,7 @@ jobs:
         fi
 
     - name: docker run new container
-      run: docker run -d -p 7070:8080 --name ibo-bo hdev1004/ibo-bo
+      run: docker run -d --name ibo-bo -p 7070:8080 -e SPRING_DATASOURCE_URL=${{ MARIADB_URL }} -e SPRING_DATASOURCE_USERNAME=${{ MARIADB_USERNAME }} -e SPRING_DATASOURCE_PASSWORD=${{ MARIADB_PASSWORD }} hdev1004/ibo-bo
 
     - name: delete old docker image
       run: docker system prune -f
