@@ -71,7 +71,7 @@ jobs:
       run: docker pull hdev1004/ibo-bo
 
     - name: docker run new container
-      run: docker run -d --name ibo-bo -p 7070:8080 -e SPRING_DATASOURCE_URL=jdbc:mariadb://mariadb:30002/ibo -e SPRING_DATASOURCE_USERNAME=ibo -e SPRING_DATASOURCE_PASSWORD=ibo hdev1004/ibo-bo
+      run: docker run -d --name ibo-bo --network ibo-network -p 7070:8080 -e SPRING_DATASOURCE_URL=jdbc:mariadb://mariadb:3306/ibo -e SPRING_DATASOURCE_USERNAME=ibo -e SPRING_DATASOURCE_PASSWORD=ibo hdev1004/ibo-bo
 
     - name: delete old docker image
       run: docker system prune -f
