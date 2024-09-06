@@ -24,6 +24,14 @@ dependencies {
     implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.0'
 	runtimeOnly 'com.h2database:h2'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	
+	// mybatis 
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	compileOnly 'org.projectlombok:lombok'	//lombok
+ 	annotationProcessor 'org.projectlombok:lombok'	//lombok
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'	//tomcat
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'	//test code
+	
 }
 
 tasks.named('test') {
